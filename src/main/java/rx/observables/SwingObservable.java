@@ -236,11 +236,11 @@ public enum SwingObservable { ; // no instances
      * @return Observable of property change events, filtered by the provided property name  for the given component
      */
     public static Observable<PropertyChangeEvent> fromPropertyChangeEvents(Component component, final String propertyName) {
-        return fromPropertyChangeEvents(component).filter( new Func1<PropertyChangeEvent, Boolean>() {
+        return fromPropertyChangeEvents(component).filter(new Func1<PropertyChangeEvent, Boolean>() {
             @Override
-            public Boolean call( PropertyChangeEvent event )
+            public Boolean call(PropertyChangeEvent event)
             {
-                return event.getPropertyName().equals( propertyName );
+                return event.getPropertyName().equals(propertyName);
             }
         } );
     }

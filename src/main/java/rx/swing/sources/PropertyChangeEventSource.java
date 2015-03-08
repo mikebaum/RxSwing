@@ -18,11 +18,9 @@ public enum PropertyChangeEventSource { ; // no instances
             @Override
             public void call(final Subscriber<? super PropertyChangeEvent> subscriber) {
                 SwingObservable.assertEventDispatchThread();
-                final PropertyChangeListener listener = new PropertyChangeListener()
-                {
+                final PropertyChangeListener listener = new PropertyChangeListener() {
                     @Override
-                    public void propertyChange(PropertyChangeEvent event)
-                    {
+                    public void propertyChange(PropertyChangeEvent event) {
                         subscriber.onNext(event);
                     }
                 };
