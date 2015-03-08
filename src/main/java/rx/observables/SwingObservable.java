@@ -227,22 +227,21 @@ public enum SwingObservable { ; // no instances
     }
     
     /**
-     * Creates an observable corresponding to property change events.
+     * Creates an observable corresponding to property change events filtered by property name.
      * 
      * @param component
      *            The component to register the observable for.
      * @param proprtyName
-     *            A property name to filter the property events on
-     * @return Observable of property change events, filtered by the provided property name  for the given component
+     *            A property name to filter the property events on.
+     * @return Observable of property change events for the given component, filtered by the provided property name
      */
     public static Observable<PropertyChangeEvent> fromPropertyChangeEvents(Component component, final String propertyName) {
         return fromPropertyChangeEvents(component).filter(new Func1<PropertyChangeEvent, Boolean>() {
             @Override
-            public Boolean call(PropertyChangeEvent event)
-            {
+            public Boolean call(PropertyChangeEvent event) {
                 return event.getPropertyName().equals(propertyName);
             }
-        } );
+        });
     }
     
     /**
